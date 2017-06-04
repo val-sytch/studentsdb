@@ -3,15 +3,15 @@
 {% load static from staticfiles %}
 
 {% block meta_title %}
-    Студенти
+    Групи
 {% endblock meta_title %}
 
 {% block title %}
-    База Студентів
+    Групи
 {% endblock title %}
 
 {% block button %}
-    <a href="{% url 'student_add' %}" class="btn btn-primary pull-right">Додати Студента</a>
+    <a href="{% url 'group_add' %}" class="btn btn-primary pull-right">Додати групу</a>
 {% endblock button %}
 
 {% block content %}
@@ -20,15 +20,13 @@
         <thead>
         <tr>
             <th><a href="#">#</a></th>
-            <th>Фото</th>
-            <th><a href="#">Прізвище &uarr;</a></th>
-            <th><a href="#">Ім'я</a></th>
-            <th><a href="#">№ Білету</a></th>
+            <th>Назва</th>
+            <th><a href="#">Староста &uarr;</a></th>
             <th>Дії</th>
         </tr>
         </thead>
         <tbody>
-        {% for student in students %}
+        {% for group in groups %}
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td><img class="img-circle" src="{% static student.image %}" height="30" width="30"/></td>
