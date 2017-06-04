@@ -35,9 +35,9 @@
     <div class="row" id="sub-header">
         <div class="col-xs-12">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#">Студенти</a></li>
+                <li role="presentation" class="active"><a href="{% url students:students_list %}">Студенти</a></li>
                 <li role="presentation"><a href="#">Відвідування</a></li>
-                <li role="presentation"><a href="#">Групи</a></li>
+                <li role="presentation"><a href="{% url students:groups_list %}">Групи</a></li>
             </ul>
         </div>
     </div>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="col-xs-6">
-                    <a href="#" class="btn btn-primary pull-right">Додати Студента</a>
+                    <a href="{% url students:student_add %}" class="btn btn-primary pull-right">Додати Студента</a>
                 </div>
             </div>
 
@@ -75,63 +75,62 @@
                 <tr>
                     <td>1</td>
                     <td><img class="img-circle" src="./img/podoba3.jpg" height="30" width="30"/></td>
-                    <td><a href="#">Корост</td>
-                    <td><a href="#">Андрій</td>
+                    <td><a href="{% url students:student_edit %}">Корост</td>
+                    <td><a href="{% url students:student_edit %}"">Андрій</td>
                     <td>2123</td>
                     <td>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown">Дія
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Дія
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Редагувати</a></li>
+                                <li><a href="{% url students:student_edit %}">Редагувати</a></li>
                                 <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Видалити</a></li>
+                                <li><a href="{% url students:student_delete %}">Видалити</a></li>
                             </ul>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td><img class="img-circle" src="./img/me.jpeg" height="30" width="30"/></td>
-                    <td><a href="#">Подоба</td>
-                    <td><a href="#">Віталій</td>
-                    <td>254</td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown">Дія
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Редагувати</a></li>
-                                <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Видалити</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><img class="img-circle" src="./img/piv.png" height="30" width="30"/></td>
-                    <td><a href="#">Притула</td>
-                    <td><a href="#">Тарас</td>
-                    <td>5332</td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle"
-                                    data-toggle="dropdown">Дія
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Редагувати</a></li>
-                                <li><a href="#">Відвідування</a></li>
-                                <li><a href="#">Видалити</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
+                <!--<tr>-->
+                    <!--<td>2</td>-->
+                    <!--<td><img class="img-circle" src="./img/me.jpeg" height="30" width="30"/></td>-->
+                    <!--<td><a href="#">Подоба</td>-->
+                    <!--<td><a href="#">Віталій</td>-->
+                    <!--<td>254</td>-->
+                    <!--<td>-->
+                        <!--<div class="btn-group">-->
+                            <!--<button type="button" class="btn btn-default dropdown-toggle"-->
+                                    <!--data-toggle="dropdown">Дія-->
+                                <!--<span class="caret"></span>-->
+                            <!--</button>-->
+                            <!--<ul class="dropdown-menu" role="menu">-->
+                                <!--<li><a href="#">Редагувати</a></li>-->
+                                <!--<li><a href="#">Відвідування</a></li>-->
+                                <!--<li><a href="#">Видалити</a></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>3</td>-->
+                    <!--<td><img class="img-circle" src="./img/piv.png" height="30" width="30"/></td>-->
+                    <!--<td><a href="#">Притула</td>-->
+                    <!--<td><a href="#">Тарас</td>-->
+                    <!--<td>5332</td>-->
+                    <!--<td>-->
+                        <!--<div class="btn-group">-->
+                            <!--<button type="button" class="btn btn-default dropdown-toggle"-->
+                                    <!--data-toggle="dropdown">Дія-->
+                                <!--<span class="caret"></span>-->
+                            <!--</button>-->
+                            <!--<ul class="dropdown-menu" role="menu">-->
+                                <!--<li><a href="#">Редагувати</a></li>-->
+                                <!--<li><a href="#">Відвідування</a></li>-->
+                                <!--<li><a href="#">Видалити</a></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
                 </tbody>
             </table>
             <!-- End Students Listing -->
