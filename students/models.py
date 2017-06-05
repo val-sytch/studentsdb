@@ -11,6 +11,7 @@ class Student(models.Model):
     photo = models.ImageField(blank=True, verbose_name='Фото', null=True)
     ticket = models.CharField(max_length=256, blank=False, verbose_name='Білет')
     notes = models.TextField(blank=True, verbose_name='Додаткові нотатки')
+    student_group = models.ForeignKey('Group', verbose_name='Група', blank=False, null=True, on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = 'Студент'
