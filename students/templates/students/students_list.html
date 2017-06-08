@@ -64,8 +64,8 @@
                     <td><img class="img-circle" src="{% static 'img/default-user.png' %}" height="30" width="30"/></td>
                 {% endif %}
 
-                <td><a href="{% url 'student_edit' student.id %}">{{ student.last_name }}</a></td>
-                <td><a href="{% url 'student_edit' student.id%}">{{ student.first_name }}</a></td>
+                <td><a href="{% url 'student_edit' student.pk %}">{{ student.last_name }}</a></td>
+                <td><a href="{% url 'student_edit' student.pk%}">{{ student.first_name }}</a></td>
                 <td>{{ student.ticket }}</td>
                 <td>
                     <div class="btn-group">
@@ -73,9 +73,9 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{% url 'student_edit' student.id %}">Редагувати</a></li>
+                            <li><a href="{% url 'student_edit' student.pk %}">Редагувати</a></li>
                             <li><a href="#">Відвідування</a></li>
-                            <li><a href="{% url 'student_delete' student.id %}">Видалити</a></li>
+                            <li><a href="{% url 'student_delete' student.pk %}">Видалити</a></li>
                         </ul>
                     </div>
                 </td>
@@ -85,17 +85,17 @@
     </table>
     <!-- End Students Listing -->
 
-    {% if students.has_other_pages %}
+    {% if is_paginated %}
     {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
         <nav>
             <ul class="pagination">
                 <li><a href="{% url 'students_list' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a></li>
-                {% for p in students.paginator.page_range %}
-                    <li {% if students.number == p %}class='active'{% endif %}>
+                {% for p in paginator.page_range %}
+                    <li {% if page_obj.number == p %}class='active'{% endif %}>
                         <a href="{% url 'students_list' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
                     </li>
                 {% endfor %}
-                <li><a href="{% url 'students_list' %}?page={{ students.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a></li>
+                <li><a href="{% url 'students_list' %}?page={{ paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a></li>
             </ul>
         </nav>
     {% endwith %}

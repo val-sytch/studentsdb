@@ -1,28 +1,28 @@
 from django.conf.urls import url
 
-from .views import groups, students, journal
+from .views import groups, students, journal, contact_admin
 
 urlpatterns = [
 
     # URL pattern for students
     url(
         regex=r'^$',
-        view=students.students_list,
+        view=students.StudentsListView.as_view(),
         name='students_list'
     ),
     url(
         regex=r'^student/add/$',
-        view=students.student_add,
+        view=students.StudentCreateView.as_view(),
         name='student_add'
     ),
     url(
-        regex=r'^student/(?P<sid>\d+)/edit/$',
-        view=students.student_edit,
+        regex=r'^student/(?P<pk>\d+)/edit/$',
+        view=students.StudentUpdateView.as_view(),
         name='student_edit'
     ),
     url(
-        regex=r'^student/(?P<sid>\d+)/delete/$',
-        view=students.student_delete,
+        regex=r'^student/(?P<pk>\d+)/delete/$',
+        view=students.StudentDeleteView.as_view(),
         name='student_delete'
     ),
 
@@ -38,13 +38,19 @@ urlpatterns = [
         name='group_add'
     ),
     url(
-        regex=r'^group/(?P<gid>\d+)/edit/$',
+        regex=r'^group/(?P<pk>\d+)/edit/$',
         view=groups.group_edit,
         name='group_edit'
     ),
     url(
-        regex=r'^group/(?P<gid>\d+)/delete/$',
+        regex=r'^group/(?P<pk>\d+)/delete/$',
         view=groups.group_delete,
         name='group_delete'
     ),
+
+    # Contact Admin Form
+    url(
+        regex=r'^contact-admin/$',
+        view=contact_admin.ContactView.as_view(),
+        name='contact_admin'),
 ]
