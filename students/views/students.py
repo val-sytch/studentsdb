@@ -1,13 +1,10 @@
-from django.shortcuts import render
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
-
-from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
-from students.models import Student
 from students.forms import StudentUpdateForm
+from students.models import Student
 
 
 class StudentsListView(ListView):

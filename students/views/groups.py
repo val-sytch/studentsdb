@@ -1,44 +1,83 @@
-from django.shortcuts import render
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
+from students.forms import GroupUpdateForm
 from students.models import Group
 
 
-def groups_list(request):
-    groups = Group.objects.all()
+class GroupsListView(ListView):
+    model = Group
+    context_object_name = 'groups'
+    template_name = 'students/groups_list.html'
+    paginate_by = 3
 
-    # try to order group list
-    order_by = request.GET.get('order_by', '')
-    if order_by in ('title', 'leader'):
-        groups = groups.order_by(order_by)
-        if request.GET.get('reverse', '') == '1':
-            groups = groups.reverse()
+    def get_queryset(self):
+        groups = super(GroupsListView, self).get_queryset()
 
-    # paginate students
-    paginator = Paginator(groups, 3)
-    page = request.GET.get('page')
-    try:
-        groups = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        groups = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        groups = paginator.page(paginator.num_pages)
-
-    context = {
-        'groups': groups
-    }
-    return render(request, 'students/groups_list.html', context)
+        # try to order groups list
+        order_by = self.request.GET.get('order_by', '')
+        if order_by in ('title', 'leader'):
+            groups = groups.order_by(order_by)
+            if self.request.GET.get('reverse', '') == '1':
+                students = groups.reverse()
+        return groups
 
 
-def group_add(request):
-    pass
+class GroupCreateView(CreateView):
+    model = Group
+    template_name = 'students/groups_edit.html'
+    form_class = GroupUpdateForm
+
+    def get_success_url(self):
+        messages.add_message(
+            self.request,
+            messages.INFO,
+            'Групу успішно збережено'
+        )
+        return reverse('groups_list')
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            return HttpResponseRedirect(reverse('groups_list'))
+        else:
+            return super(GroupCreateView, self).post(request, *args, **kwargs)
 
 
-def group_edit(request):
-    pass
+class GroupUpdateView(UpdateView):
+    model = Group
+    template_name = 'students/groups_edit.html'
+    form_class = GroupUpdateForm
+
+    def get_success_url(self):
+        messages.add_message(
+            self.request,
+            messages.INFO,
+            'Групу успішно збережено'
+        )
+        return reverse('groups_list')
+
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            messages.add_message(
+                self.request,
+                messages.INFO,
+                'Редагування групи відмінено'
+            )
+            return HttpResponseRedirect(reverse('groups_list'))
+        else:
+            return super(GroupUpdateView, self).post(request, *args, **kwargs)
 
 
-def group_delete(request):
-    pass
+class GroupDeleteView(DeleteView):
+    model = Group
+    template_name = 'students/group_confirm_delete.html'
+
+    def get_success_url(self):
+        messages.add_message(
+            self.request,
+            messages.INFO,
+            'Групу успішно видалено'
+        )
+        return reverse('groups_list')

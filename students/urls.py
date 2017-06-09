@@ -29,22 +29,22 @@ urlpatterns = [
     # URL pattern for groups
     url(
         regex=r'^groups/$',
-        view=groups.groups_list,
+        view=groups.GroupsListView.as_view(),
         name='groups_list'
     ),
     url(
         regex=r'^group/add/$',
-        view=groups.group_add,
+        view=groups.GroupCreateView.as_view(),
         name='group_add'
     ),
     url(
         regex=r'^group/(?P<pk>\d+)/edit/$',
-        view=groups.group_edit,
+        view=groups.GroupUpdateView.as_view(),
         name='group_edit'
     ),
     url(
         regex=r'^group/(?P<pk>\d+)/delete/$',
-        view=groups.group_delete,
+        view=groups.GroupDeleteView.as_view(),
         name='group_delete'
     ),
 
