@@ -50,8 +50,15 @@ function initGroupSelector() {
     });
 }
 
+function initDateFields() {
+    $('input.dateinput').datetimepicker({
+        'format': 'YYYY-MM-DD',
+        locale: 'uk'
+    });
+}
+
 $(document).ready(function () {
     initJournal();
-    initGroupSelector()
-
+    initGroupSelector();
+    initDateFields();
 });
