@@ -50,7 +50,7 @@ class JournalView(TemplateView):
         if current_group:
             queryset = Student.objects.filter(student_group=current_group).order_by('last_name')
         elif kwargs.get('pk'):
-            queryset = [Student.objects.get(pk=kwargs['pk'])]
+            queryset = Student.objects.filter(pk=kwargs['pk'])
         else:
             queryset = Student.objects.all().order_by('last_name')
 
