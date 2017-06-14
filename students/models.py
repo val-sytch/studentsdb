@@ -37,3 +37,20 @@ class Group(models.Model):
         else:
             return '{}'.format(self.title)
 
+
+class MonthJournal(models.Model):
+    """
+    Student monthly journal
+    """
+    class Meta:
+        verbose_name = 'Місячний Журнал'
+        verbose_name_plural = 'Місячні Журнали'
+
+    student = models.ForeignKey('Student', verbose_name='Студент', blank=False, unique_for_month='date')
+    date = models.DateField(verbose_name='Дата', blank=False)
+
+    def __str__(self):
+        '{1}: {2}, {3}'.format(self.student.last_name, self.date.month, self.date.year)
+
+for i in range(1, 32):
+    MonthJournal.add_to_class('present_day{}'.format(i), models.BooleanField(default=False))

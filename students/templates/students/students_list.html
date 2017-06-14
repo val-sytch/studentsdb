@@ -84,9 +84,8 @@
         </tbody>
     </table>
     <!-- End Students Listing -->
-
-    {% if is_paginated %}
+    {% with object_list=page_obj %}
         {% include 'students/block/paginator.html' %}
-    {% endif %}
+    {% endwith %}
 
 {% endblock content %}

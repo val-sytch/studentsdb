@@ -53,4 +53,10 @@ urlpatterns = [
         regex=r'^contact-admin/$',
         view=contact_admin.ContactView.as_view(),
         name='contact_admin'),
+
+    url(
+        regex=r'^journal/$',
+        view=journal.JournalView.as_view(),
+        name='journal'
+    )
 ]
