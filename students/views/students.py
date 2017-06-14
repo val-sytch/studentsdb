@@ -5,6 +5,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from students.forms import StudentUpdateForm
 from students.models import Student
+from students.util import get_current_group
 
 
 class StudentsListView(ListView):
@@ -14,7 +15,13 @@ class StudentsListView(ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        students = super(StudentsListView, self).get_queryset()
+        # check if we need to show only one group of students
+        current_group = get_current_group(self.request)
+        if current_group:
+            students = Student.objects.filter(student_group=current_group)
+        else:
+            # otherwise show all students
+            students = super(StudentsListView, self).get_queryset()
 
         # try to order students list
         order_by = self.request.GET.get('order_by', '')
