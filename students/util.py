@@ -28,7 +28,7 @@ def get_groups(request):
     Returns list of existing groups
     """
     # deferred import of Group model to avoid cycled imports
-    from .models import Group
+    from students.models import Group
 
     # get currently selected group
     cur_group = get_current_group(request)
@@ -38,7 +38,7 @@ def get_groups(request):
         groups.append({
             'id': group.id,
             'title': group.title,
-            'leader': group.leader and (u'%s %s' % (group.leader.first_name, group.leader.last_name)) or None,
+            'leader': group.leader and ('{} {}'.format(group.leader.first_name, group.leader.last_name)) or None,
             'selected': cur_group and cur_group.id == group.id and True or False
         })
     return groups
@@ -53,7 +53,7 @@ def get_current_group(request):
     pk = request.COOKIES.get('current_group')
 
     if pk:
-        from .models import Group
+        from students.models import Group
         try:
             group = Group.objects.get(pk=int(pk))
         except Group.DoesNotExist:
