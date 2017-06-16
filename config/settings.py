@@ -191,3 +191,10 @@ LOGGING = {
         }
     }
 }
+
+# MANAGER CONFIGURATION
+# ------------------------------------------------------------------------------
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
+ADMINS = (
+    ('admin', 'ibis.test333@gmail.com')
+)

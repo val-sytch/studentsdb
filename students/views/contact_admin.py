@@ -1,8 +1,6 @@
-from django.shortcuts import render
+import logging
 from django.contrib import messages
-from django.core.mail import send_mail
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.core.mail import send_mail, mail_admins
 from django.views.generic.edit import FormView
 
 from config.settings import ADMIN_EMAIL
@@ -27,6 +25,9 @@ class ContactView(FormView):
                 messages.INFO,
                 'Щось пiшло не так, будь ласка спробуйте пiзнiше'
             )
+
+            logger = logging.getLogger(__name__)
+            logger.exception(message)
         else:
             messages.add_message(
                 self.request,
