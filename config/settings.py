@@ -133,7 +133,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
 # email settings
-ADMIN_EMAIL = 'admin@studentsdb.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
 EMAIL_HOST_USER = 'ibis.test333@gmail.com'
@@ -196,5 +195,6 @@ LOGGING = {
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ('admin', 'ibis.test333@gmail.com')
+    ('admin', 'ibis.test333@gmail.com'),
+    ('ak_vs', 'ak_vs@bk.ru')
 )

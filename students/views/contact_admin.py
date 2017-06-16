@@ -1,9 +1,9 @@
 import logging
 from django.contrib import messages
-from django.core.mail import send_mail, mail_admins
+from django.core.mail import send_mail
 from django.views.generic.edit import FormView
 
-from config.settings import ADMIN_EMAIL
+from config.settings import ADMINS
 from students.forms import ContactForm
 
 
@@ -18,7 +18,7 @@ class ContactView(FormView):
         message = form.cleaned_data['message']
         from_email = form.cleaned_data['from_email']
         try:
-            send_mail(subject, message, from_email, [ADMIN_EMAIL])
+            send_mail(subject, message, from_email, [admin[2] for admin in ADMINS])
         except Exception:
             messages.add_message(
                 self.request,
