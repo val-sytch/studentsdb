@@ -5,14 +5,14 @@ from django.dispatch import receiver
 
 from students.models import Student, Group, MonthJournal
 
+logger = logging.getLogger(__name__)
+
 
 @receiver([post_save, post_delete], sender=Student)
 def log_student_crud(sender, **kwargs):
     """
     Log information about student into log file
     """
-    logger = logging.getLogger(__name__)
-
     student = kwargs['instance']
     created = kwargs.get('created')
 
@@ -30,8 +30,6 @@ def log_group_crud(sender, **kwargs):
     """
     Log information about group into log file
     """
-    logger = logging.getLogger(__name__)
-
     group = kwargs['instance']
     created = kwargs.get('created')
 
@@ -49,8 +47,6 @@ def log_month_journal_crud(sender, **kwargs):
     """
     Log information about month journal into log file
     """
-    logger = logging.getLogger(__name__)
-
     month_journal = kwargs['instance']
     created = kwargs.get('created')
     print(kwargs)
