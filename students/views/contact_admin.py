@@ -18,7 +18,7 @@ class ContactView(FormView):
         message = form.cleaned_data['message']
         from_email = form.cleaned_data['from_email']
         try:
-            send_mail(subject, message, from_email, [admin[2] for admin in ADMINS])
+            send_mail(subject, message, from_email, [admin[1] for admin in ADMINS])
         except Exception:
             messages.add_message(
                 self.request,

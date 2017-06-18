@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-18 19:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/contact_admin/form.html:6 templates/contact_admin/form.html:7
+msgid "Contact with admin"
+msgstr ""
+
+#: templates/students/base.html:8 templates/students/base.html:28
+#: templates/students/base.html:91
+msgid "Students Accounting Service"
+msgstr ""
+
+#: templates/students/base.html:9
+msgid "App to manage students database"
+msgstr ""
+
+#: templates/students/base.html:31
+msgid "Group:"
+msgstr ""
+
+#: templates/students/base.html:33
+msgid "All Students"
+msgstr ""
+
+#: templates/students/base.html:48 templates/students/students_list.html:7
+msgid "Students"
+msgstr ""
+
+#: templates/students/base.html:49 templates/students/journal.html:6
+#: templates/students/journal.html:7 templates/students/students_list.html:78
+msgid "Journal"
+msgstr ""
+
+#: templates/students/base.html:50 templates/students/groups_list.html:7
+#: templates/students/groups_list.html:11
+msgid "Groups"
+msgstr ""
+
+#: templates/students/base.html:51
+msgid "Contact"
+msgstr ""
+
+#: templates/students/group_confirm_delete.html:6
+#: templates/students/group_confirm_delete.html:7
+msgid "Delete group"
+msgstr ""
+
+#: templates/students/group_confirm_delete.html:13
+#, python-format
+msgid " Do you really want to delete group '%(object)s'?"
+msgstr ""
+
+#: templates/students/group_confirm_delete.html:15
+#: templates/students/student_confirm_delete.html:15
+msgid "Yes"
+msgstr ""
+
+#: templates/students/group_confirm_delete.html:17
+#: templates/students/student_confirm_delete.html:17
+msgid "No"
+msgstr ""
+
+#: templates/students/groups_edit.html:7 templates/students/groups_edit.html:8
+msgid "Edit group"
+msgstr ""
+
+#: templates/students/groups_list.html:15
+msgid "Add group"
+msgstr ""
+
+#: templates/students/groups_list.html:26
+msgid "Title"
+msgstr ""
+
+#: templates/students/groups_list.html:35
+msgid "Leader"
+msgstr ""
+
+#: templates/students/groups_list.html:43
+msgid "Actions"
+msgstr ""
+
+#: templates/students/groups_list.html:59
+#: templates/students/students_list.html:53
+#: templates/students/students_list.html:73
+msgid "Action"
+msgstr ""
+
+#: templates/students/groups_list.html:63 templates/students/journal.html:60
+#: templates/students/students_list.html:77
+msgid "Edit"
+msgstr ""
+
+#: templates/students/groups_list.html:64
+#: templates/students/students_list.html:79
+msgid "Delete"
+msgstr ""
+
+#: templates/students/journal.html:13
+msgid "There are no students in database now. Please, add first."
+msgstr ""
+
+#: templates/students/journal.html:14
+msgid "Add student"
+msgstr ""
+
+#: templates/students/journal.html:20
+msgid "Changes are saved automatically every time you click the checkbox"
+msgstr ""
+
+#: templates/students/journal.html:21
+msgid "Saving to the database..."
+msgstr ""
+
+#: templates/students/journal.html:26
+msgid "Previous month"
+msgstr ""
+
+#: templates/students/journal.html:30
+msgid "Next month"
+msgstr ""
+
+#: templates/students/journal.html:37
+msgid "Student"
+msgstr ""
+
+#: templates/students/student_confirm_delete.html:6
+#: templates/students/student_confirm_delete.html:7
+msgid "Delete student"
+msgstr ""
+
+#: templates/students/student_confirm_delete.html:13
+#, python-format
+msgid " Do you really want to delete student '%(object)s'?"
+msgstr ""
+
+#: templates/students/students_edit.html:7
+#: templates/students/students_edit.html:8
+msgid "Edit student"
+msgstr ""
+
+#: templates/students/students_list.html:11
+msgid "Students List"
+msgstr ""
+
+#: templates/students/students_list.html:15
+msgid "Add Student"
+msgstr ""
+
+#: templates/students/students_list.html:25
+msgid "Photo"
+msgstr ""
+
+#: templates/students/students_list.html:27
+msgid "Last Name"
+msgstr ""
+
+#: templates/students/students_list.html:36
+msgid "First Name"
+msgstr ""
+
+#: templates/students/students_list.html:45
+msgid "Ticket №"
+msgstr ""
