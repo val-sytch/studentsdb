@@ -1,6 +1,7 @@
 import logging
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.utils.translation import ugettext as _
 from django.views.generic.edit import FormView
 
 from config.settings import ADMINS
@@ -23,7 +24,7 @@ class ContactView(FormView):
             messages.add_message(
                 self.request,
                 messages.INFO,
-                'Щось пiшло не так, будь ласка спробуйте пiзнiше'
+                _('Something went wrong. Please, try again later')
             )
 
             logger = logging.getLogger(__name__)
@@ -32,6 +33,6 @@ class ContactView(FormView):
             messages.add_message(
                 self.request,
                 messages.INFO,
-                'Ваше повідомлення будо успішно надіслане'
+                _('Your message was successfully sent')
             )
         return super(ContactView, self).form_valid(form)

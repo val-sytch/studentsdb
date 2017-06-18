@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.utils.translation import ugettext as _
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from students.forms import StudentUpdateForm
@@ -41,7 +42,7 @@ class StudentCreateView(CreateView):
         messages.add_message(
             self.request,
             messages.INFO,
-            'Студента успішно збережено'
+            _('Student was successfully saved')
         )
         return reverse('students_list')
 
@@ -61,7 +62,7 @@ class StudentUpdateView(UpdateView):
         messages.add_message(
             self.request,
             messages.INFO,
-            'Студента успішно збережено'
+            _('Student was successfully saved')
         )
         return reverse('students_list')
 
@@ -70,7 +71,7 @@ class StudentUpdateView(UpdateView):
             messages.add_message(
                 self.request,
                 messages.INFO,
-                'Редагування студента відмінено'
+                _('Editing of student was canceled')
             )
             return HttpResponseRedirect(reverse('students_list'))
         else:
@@ -85,6 +86,6 @@ class StudentDeleteView(DeleteView):
         messages.add_message(
             self.request,
             messages.INFO,
-            'Студента успішно видалено'
+            _('Student was successfully deleted')
         )
         return reverse('students_list')

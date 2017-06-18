@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.utils.translation import ugettext as _
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from students.forms import GroupUpdateForm
@@ -41,7 +42,7 @@ class GroupCreateView(CreateView):
         messages.add_message(
             self.request,
             messages.INFO,
-            'Групу успішно збережено'
+            _('Group was successfully saved')
         )
         return reverse('groups_list')
 
@@ -61,7 +62,7 @@ class GroupUpdateView(UpdateView):
         messages.add_message(
             self.request,
             messages.INFO,
-            'Групу успішно збережено'
+            _('Group was successfully saved')
         )
         return reverse('groups_list')
 
@@ -70,7 +71,7 @@ class GroupUpdateView(UpdateView):
             messages.add_message(
                 self.request,
                 messages.INFO,
-                'Редагування групи відмінено'
+                _('Editing of group was canceled')
             )
             return HttpResponseRedirect(reverse('groups_list'))
         else:
@@ -85,6 +86,6 @@ class GroupDeleteView(DeleteView):
         messages.add_message(
             self.request,
             messages.INFO,
-            'Групу успішно видалено'
+            _('Group was successfully deleted')
         )
         return reverse('groups_list')

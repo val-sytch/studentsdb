@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 19:01+0000\n"
+"POT-Creation-Date: 2017-06-18 20:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,73 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/contact_admin/form.html:6 templates/contact_admin/form.html:7
+#: models.py:8
+msgid "First name"
+msgstr ""
+
+#: models.py:9
+msgid "Last name"
+msgstr ""
+
+#: models.py:10
+msgid "Middle name"
+msgstr ""
+
+#: models.py:11
+msgid "Date of birth"
+msgstr ""
+
+#: models.py:12 templates/students/students_list.html:25
+msgid "Photo"
+msgstr ""
+
+#: models.py:13
+msgid "Ticket"
+msgstr ""
+
+#: models.py:14 models.py:29
+msgid "Extra notes"
+msgstr ""
+
+#: models.py:15 models.py:32
+msgid "Group"
+msgstr ""
+
+#: models.py:18 models.py:50 templates/students/journal.html:37
+msgid "Student"
+msgstr ""
+
+#: models.py:19 templates/students/base.html:48
+#: templates/students/students_list.html:7
+msgid "Students"
+msgstr ""
+
+#: models.py:27 templates/students/groups_list.html:26
+msgid "Title"
+msgstr ""
+
+#: models.py:28 templates/students/groups_list.html:35
+msgid "Leader"
+msgstr ""
+
+#: models.py:33 templates/students/base.html:50
+#: templates/students/groups_list.html:7 templates/students/groups_list.html:11
+msgid "Groups"
+msgstr ""
+
+#: models.py:47
+msgid "Month Journal"
+msgstr ""
+
+#: models.py:48
+msgid "Month Journals"
+msgstr ""
+
+#: models.py:51
+msgid "Date"
+msgstr ""
+
+#: templates/contact_admin/form.html:7 templates/contact_admin/form.html:8
 msgid "Contact with admin"
 msgstr ""
 
@@ -38,18 +104,9 @@ msgstr ""
 msgid "All Students"
 msgstr ""
 
-#: templates/students/base.html:48 templates/students/students_list.html:7
-msgid "Students"
-msgstr ""
-
 #: templates/students/base.html:49 templates/students/journal.html:6
 #: templates/students/journal.html:7 templates/students/students_list.html:78
 msgid "Journal"
-msgstr ""
-
-#: templates/students/base.html:50 templates/students/groups_list.html:7
-#: templates/students/groups_list.html:11
-msgid "Groups"
 msgstr ""
 
 #: templates/students/base.html:51
@@ -82,14 +139,6 @@ msgstr ""
 
 #: templates/students/groups_list.html:15
 msgid "Add group"
-msgstr ""
-
-#: templates/students/groups_list.html:26
-msgid "Title"
-msgstr ""
-
-#: templates/students/groups_list.html:35
-msgid "Leader"
 msgstr ""
 
 #: templates/students/groups_list.html:43
@@ -136,10 +185,6 @@ msgstr ""
 msgid "Next month"
 msgstr ""
 
-#: templates/students/journal.html:37
-msgid "Student"
-msgstr ""
-
 #: templates/students/student_confirm_delete.html:6
 #: templates/students/student_confirm_delete.html:7
 msgid "Delete student"
@@ -163,10 +208,6 @@ msgstr ""
 msgid "Add Student"
 msgstr ""
 
-#: templates/students/students_list.html:25
-msgid "Photo"
-msgstr ""
-
 #: templates/students/students_list.html:27
 msgid "Last Name"
 msgstr ""
@@ -177,4 +218,36 @@ msgstr ""
 
 #: templates/students/students_list.html:45
 msgid "Ticket №"
+msgstr ""
+
+#: views/contact_admin.py:27
+msgid "Something went wrong. Please, try again later"
+msgstr ""
+
+#: views/contact_admin.py:36
+msgid "Your message was successfully sent"
+msgstr ""
+
+#: views/groups.py:45 views/groups.py:65
+msgid "Group was successfully saved"
+msgstr ""
+
+#: views/groups.py:74
+msgid "Editing of group was canceled"
+msgstr ""
+
+#: views/groups.py:89
+msgid "Group was successfully deleted"
+msgstr ""
+
+#: views/students.py:45 views/students.py:65
+msgid "Student was successfully saved"
+msgstr ""
+
+#: views/students.py:74
+msgid "Editing of student was canceled"
+msgstr ""
+
+#: views/students.py:89
+msgid "Student was successfully deleted"
 msgstr ""

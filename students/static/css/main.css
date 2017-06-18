@@ -43,3 +43,8 @@ th.day-header {
 #ajax-progress-indicator {
     display: none;
 }
+
+.localization {
+    float: right;
+    margin-top: 20px;
+}
