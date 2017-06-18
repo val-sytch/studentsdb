@@ -2,6 +2,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django import forms
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 from students.models import Student, Group
 
@@ -29,9 +30,9 @@ class ContactForm(forms.Form):
         # form buttons
         self.helper.add_input(Submit('send_button', 'Надіслати'))
 
-    from_email = forms.EmailField(label='Ваша Емейл Адреса')
-    subject = forms.CharField(label='Заголовок листа', max_length=128)
-    message = forms.CharField(label='Текст повідомлення', widget=forms.Textarea)
+    from_email = forms.EmailField(label=_('Your e-mail'))
+    subject = forms.CharField(label=_('Theme'), max_length=128)
+    message = forms.CharField(label=_('Message'), widget=forms.Textarea)
 
 
 class StudentUpdateForm(forms.ModelForm):
@@ -65,8 +66,8 @@ class StudentUpdateForm(forms.ModelForm):
         self.helper.field_class = 'col-sm-10'
 
         # add buttons
-        self.helper.add_input(Submit('add_button', 'Зберегти', css_class='btn btn-primary'))
-        self.helper.add_input(Submit('cancel_button', 'Скасувати', css_class='btn btn-link'))
+        self.helper.add_input(Submit('add_button', _('Save'), css_class='btn btn-primary'))
+        self.helper.add_input(Submit('cancel_button', _('Cancel'), css_class='btn btn-link'))
 
     def clean_student_group(self):
         """
@@ -76,7 +77,7 @@ class StudentUpdateForm(forms.ModelForm):
         # get group where current student is a leader
         groups = Group.objects.filter(leader=self.instance)
         if len(groups) > 0 and self.cleaned_data['student_group'] != groups[0]:
-            raise forms.ValidationError('Студент є старостою іншої групи.', code='invalid')
+            raise forms.ValidationError(_('This student is already leader of another group'), code='invalid')
         return self.cleaned_data['student_group']
 
 
@@ -111,8 +112,8 @@ class GroupUpdateForm(forms.ModelForm):
         self.helper.field_class = 'col-sm-10'
 
         # add buttons
-        self.helper.add_input(Submit('add_button', 'Зберегти', css_class='btn btn-primary'))
-        self.helper.add_input(Submit('cancel_button', 'Скасувати', css_class='btn btn-link'))
+        self.helper.add_input(Submit('add_button', _('Save'), css_class='btn btn-primary'))
+        self.helper.add_input(Submit('cancel_button', _('Cancel'), css_class='btn btn-link'))
 
     def clean_leader(self):
         """
@@ -122,6 +123,6 @@ class GroupUpdateForm(forms.ModelForm):
         #
         students = Student.objects.filter(student_group=self.instance)
         if students and self.cleaned_data['leader'] and not students.filter(id=self.cleaned_data['leader'].id).exists():
-            raise forms.ValidationError('Цей cтудент належить до іншої групи.', code='invalid')
+            raise forms.ValidationError(_('This student belongs to another group'), code='invalid')
         return self.cleaned_data['leader']
 

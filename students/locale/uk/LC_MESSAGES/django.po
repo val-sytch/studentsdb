@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-18 20:45+0000\n"
+"POT-Creation-Date: 2017-06-18 23:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: admin.py:19 forms.py:80
+msgid "This student is already leader of another group"
+msgstr "Студент є старостою іншої групи."
+
+#: admin.py:47
+msgid "1 student was successfully copied"
+msgstr "1 студент був успiшно скопiйований"
+
+#: admin.py:49
+msgid "{} students were successfully copied"
+msgstr "{} студентів було успiшно скопiйовано"
+
+#: admin.py:51
+msgid "Copy selected students"
+msgstr "Скопiювати обраних студентiв"
+
+#: admin.py:64 forms.py:126
+msgid "This student belongs to another group"
+msgstr "Цей cтудент належить до іншої групи."
+
+#: apps.py:7
+msgid "Students database"
+msgstr "База студентів"
+
+#: forms.py:33
+msgid "Your e-mail"
+msgstr "Ваш e-mail"
+
+#: forms.py:34
+msgid "Theme"
+msgstr "Тема"
+
+#: forms.py:35
+msgid "Message"
+msgstr "Повідомлення"
+
+#: forms.py:69 forms.py:115
+msgid "Save"
+msgstr "Зберегти"
+
+#: forms.py:70 forms.py:116
+msgid "Cancel"
+msgstr "Скасувати"
 
 #: models.py:8
 msgid "First name"
@@ -51,11 +95,11 @@ msgstr "Додаткові нотатки"
 msgid "Group"
 msgstr "Група"
 
-#: models.py:18 models.py:50 templates/students/journal.html:37
+#: models.py:18 models.py:50 templates/students/journal.html:36
 msgid "Student"
 msgstr "Студент"
 
-#: models.py:19 templates/students/base.html:48
+#: models.py:19 templates/students/base.html:65
 #: templates/students/students_list.html:7
 msgid "Students"
 msgstr "Студенти"
@@ -68,7 +112,7 @@ msgstr "Назва"
 msgid "Leader"
 msgstr "Староста"
 
-#: models.py:33 templates/students/base.html:50
+#: models.py:33 templates/students/base.html:67
 #: templates/students/groups_list.html:7 templates/students/groups_list.html:11
 msgid "Groups"
 msgstr "Групи"
@@ -89,8 +133,8 @@ msgstr "Дата"
 msgid "Contact with admin"
 msgstr "Зв'язатись з адміністратором"
 
-#: templates/students/base.html:8 templates/students/base.html:28
-#: templates/students/base.html:91
+#: templates/students/base.html:8 templates/students/base.html:45
+#: templates/students/base.html:108
 msgid "Students Accounting Service"
 msgstr "Сервіс Обліку Студентів"
 
@@ -98,20 +142,20 @@ msgstr "Сервіс Обліку Студентів"
 msgid "App to manage students database"
 msgstr "Система Обліку Студентів Навчального Закладу"
 
-#: templates/students/base.html:31
+#: templates/students/base.html:48
 msgid "Group:"
 msgstr "Група"
 
-#: templates/students/base.html:33
+#: templates/students/base.html:50
 msgid "All Students"
 msgstr "Усі Студенти"
 
-#: templates/students/base.html:49 templates/students/journal.html:6
+#: templates/students/base.html:66 templates/students/journal.html:6
 #: templates/students/journal.html:7 templates/students/students_list.html:78
 msgid "Journal"
 msgstr "Відвідування"
 
-#: templates/students/base.html:51
+#: templates/students/base.html:68
 msgid "Contact"
 msgstr "Контакт"
 
@@ -153,7 +197,7 @@ msgstr "Дії"
 msgid "Action"
 msgstr "Дія"
 
-#: templates/students/groups_list.html:63 templates/students/journal.html:60
+#: templates/students/groups_list.html:63 templates/students/journal.html:58
 #: templates/students/students_list.html:77
 msgid "Edit"
 msgstr "Редагувати"
@@ -173,7 +217,8 @@ msgstr "Додати студента"
 
 #: templates/students/journal.html:20
 msgid "Changes are saved automatically every time you click the checkbox"
-msgstr "Зміни в журнал зберігаються автоматично при кожному кліку в клітинці таблиці."
+msgstr ""
+"Зміни в журнал зберігаються автоматично при кожному кліку в клітинці таблиці"
 
 #: templates/students/journal.html:21
 msgid "Saving to the database..."
@@ -183,7 +228,7 @@ msgstr "Йде збереження..."
 msgid "Previous month"
 msgstr "Попередній місяць"
 
-#: templates/students/journal.html:30
+#: templates/students/journal.html:29
 msgid "Next month"
 msgstr "Наступний місяць"
 

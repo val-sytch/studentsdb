@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from django.forms import ModelForm, ValidationError
+from django.utils.translation import ugettext_lazy as _
 
 from students.models import Student, Group, MonthJournal
 
@@ -15,7 +16,7 @@ class StudentFormAdmin(ModelForm):
         # get group where current student is a leader
         groups = Group.objects.filter(leader=self.instance)
         if len(groups) > 0 and self.cleaned_data['student_group'] != groups[0]:
-            raise ValidationError('Студент є старостою іншої групи.', code='invalid')
+            raise ValidationError(_('This student is already leader of another group'), code='invalid')
         return self.cleaned_data['student_group']
 
 
@@ -43,11 +44,11 @@ class StudentAdmin(admin.ModelAdmin):
             obj.save()
             rows_updated += 1
         if rows_updated == 1:
-            message_bit = "1 студент був успiшно скопiйований"
+            message_bit = _("1 student was successfully copied")
         else:
-            message_bit = "{} студенти були успiшно скопiйованi".format(rows_updated)
+            message_bit = _("{} students were successfully copied").format(rows_updated)
         self.message_user(request, message_bit)
-    copy_student.short_description = "Скопiювати обраних студентiв"
+    copy_student.short_description = _("Copy selected students")
 
 
 class GroupFormAdmin(ModelForm):
@@ -60,7 +61,7 @@ class GroupFormAdmin(ModelForm):
         #
         students = Student.objects.filter(student_group=self.instance)
         if students and not students.filter(id=self.cleaned_data['leader'].id).exists():
-            raise ValidationError('Цей cтудент належить до іншої групи.', code='invalid')
+            raise ValidationError(_('This student belongs to another group'), code='invalid')
         return self.cleaned_data['leader']
 
 
