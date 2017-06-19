@@ -30,9 +30,12 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# ------------------------------------------------------------------------------
 
 INSTALLED_APPS = [
+    'stud_auth',
     'django.contrib.admin',
+    'registration',  # should be immediately above 'django.contrib.auth'
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'students',
+
 ]
 
 MIDDLEWARE = [
@@ -77,6 +81,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
+# ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
@@ -92,6 +97,7 @@ DATABASES = {
 
 
 # Password validation
+# ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -111,6 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
+# ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'uk'
@@ -139,7 +146,9 @@ PORTAL_URL = 'http://localhost:8000'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
+
 # email settings
+# ------------------------------------------------------------------------------
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
 EMAIL_HOST_USER = 'ibis.test333@gmail.com'
@@ -205,3 +214,9 @@ ADMINS = (
     ('admin', 'ibis.test333@gmail.com'),
     ('ak_vs', 'ak_vs@bk.ru')
 )
+
+# REGISTRATION
+# ------------------------------------------------------------------------------
+# https://django-registration-redux.readthedocs.io
+
+REGISTRATION_OPEN = True
