@@ -42,8 +42,9 @@
             <input type="password" class="form-control" id="password-confirm" value="" name="password2"/>
             <span class="help-block">{{ form.errors.password2.as_text }}</span>
         </div>
-
-        <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+        <div class='form-group'>
+            <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
+        </div>
 
     </form>
 
