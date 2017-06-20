@@ -220,3 +220,6 @@ ADMINS = (
 # https://django-registration-redux.readthedocs.io
 
 REGISTRATION_OPEN = True
+
+LOGIN_URL = 'users:auth_login'
+LOGOUT_URL = 'users:auth_logout'
