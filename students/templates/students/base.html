@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="{{ PORTAL_URL }}{% static 'css/main.css' %}">
@@ -46,7 +47,7 @@
         </div>
 
         {% if user.is_authenticated %}
-            <div class="col-xs-4" id="group-selector">
+            <div class="col-xs-3" id="group-selector">
                 <strong>{% trans 'Group:' %}</strong>
                 <select>
                     <option value=''>{% trans 'All Students' %}</option>
@@ -59,7 +60,7 @@
             </div>
 
             <!-- User’s toolbar for authenticated users -->
-            <div class='col-xs-2' id='user-toolbar'>
+            <div class='col-xs-3' id='user-toolbar'>
                 <a href='{% url 'profile' %}'>{{ user.get_full_name|default:user.username }}</a> |
                 <a href='{% url 'users:auth_logout' %}'>{% trans 'Logout' %}</a>
             </div>
@@ -67,6 +68,8 @@
 
             <!-- User’s toolbar for anonymous users -->
             <div class='col-xs-6' id='user-toolbar'>
+                <a href='{% url 'social:begin' 'facebook' %}'>
+                    <i class="fa fa-facebook-official fa-lg" aria-hidden="true" ></i></a> |
                 <a href='{% url 'users:auth_login' %}'>{% trans 'Login' %}</a> |
                 <a href='{% url 'users:registration_register' %}'>{% trans 'Register' %}</a>
             </div>

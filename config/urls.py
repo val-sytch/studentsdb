@@ -9,8 +9,13 @@ urlpatterns = [
     # students database
     url(r'', include('students.urls')),
 
+    # for social authentication and authorization
+    url(r'', include('social_django.urls', namespace='social')),
+
     # User Related urls(login, logout, registration)
     url(r'', include('stud_auth.urls')),
+
+
 
     # internationalization
     url(r'^i18n/', include('django.conf.urls.i18n')),

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'crispy_forms',
     'students',
 
@@ -70,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
                 'config.context_processors.students_proc',
                 'students.context_processors.groups_processor'
             ],
@@ -135,6 +138,11 @@ LANGUAGES = [
     ('en', _('English')),
 ]
 
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -223,3 +231,9 @@ REGISTRATION_OPEN = True
 
 LOGIN_URL = 'users:auth_login'
 LOGOUT_URL = 'users:auth_logout'
+
+# login via facebook, credentials to test app
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_FACEBOOK_KEY = '1889082398031654'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'b415fe98fb28d35edc719b1e81769913'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
