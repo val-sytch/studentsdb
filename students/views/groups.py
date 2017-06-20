@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext as _
@@ -9,7 +10,7 @@ from students.models import Group
 from students.util import get_current_group
 
 
-class GroupsListView(ListView):
+class GroupsListView(LoginRequiredMixin, ListView):
     model = Group
     context_object_name = 'groups'
     template_name = 'students/groups_list.html'
@@ -33,7 +34,7 @@ class GroupsListView(ListView):
         return groups
 
 
-class GroupCreateView(CreateView):
+class GroupCreateView(LoginRequiredMixin, CreateView):
     model = Group
     template_name = 'students/groups_edit.html'
     form_class = GroupUpdateForm
@@ -53,7 +54,7 @@ class GroupCreateView(CreateView):
             return super(GroupCreateView, self).post(request, *args, **kwargs)
 
 
-class GroupUpdateView(UpdateView):
+class GroupUpdateView(LoginRequiredMixin, UpdateView):
     model = Group
     template_name = 'students/groups_edit.html'
     form_class = GroupUpdateForm
@@ -78,7 +79,7 @@ class GroupUpdateView(UpdateView):
             return super(GroupUpdateView, self).post(request, *args, **kwargs)
 
 
-class GroupDeleteView(DeleteView):
+class GroupDeleteView(LoginRequiredMixin, DeleteView):
     model = Group
     template_name = 'students/group_confirm_delete.html'
 

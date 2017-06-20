@@ -4,6 +4,7 @@ from calendar import monthrange, weekday, day_abbr
 
 from django.http import JsonResponse
 from django.core.urlresolvers import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
 from config.settings import PAGINATE_BY
@@ -11,7 +12,7 @@ from students.models import MonthJournal, Student
 from students.util import paginate, get_current_group
 
 
-class JournalView(TemplateView):
+class JournalView(LoginRequiredMixin, TemplateView):
     template_name = 'students/journal.html'
 
     def get_context_data(self, **kwargs):

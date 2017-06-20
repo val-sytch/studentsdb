@@ -1,5 +1,6 @@
 import logging
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.utils.translation import ugettext as _
 from django.views.generic.edit import FormView
@@ -8,7 +9,7 @@ from config.settings import ADMINS
 from students.forms import ContactForm
 
 
-class ContactView(FormView):
+class ContactView(LoginRequiredMixin, FormView):
 
     template_name = 'contact_admin/form.html'
     form_class = ContactForm
