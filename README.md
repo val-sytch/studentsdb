@@ -28,7 +28,7 @@ $ . venv/bin/activate
 ### Install requirements
 
 ```sh
-(venv)$ pip install -r requirements.txt
+(venv)$ pip install -r requirements/base.txt
 ```
 
 ### Database
@@ -62,10 +62,4 @@ $ sudo docker-compose ps
 (venv)$ python manage.py loaddata demo_data.json
 (venv)$ python manage.py createsuperuser
 (venv)$ python manage.py runserver
-```
-
-## Run tests
-
-```sh
-(venv)$ python manage.py test
 ```
