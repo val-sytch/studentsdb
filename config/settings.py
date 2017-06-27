@@ -209,11 +209,13 @@ LOGGING = {
             'level': 'INFO',
         },
         'students.signals': {
-            'handlers': ['console', 'file'],
+            # 'handlers': ['console', 'file'],
+            'handlers': ['file'],
             'level': 'INFO',
         },
         'students.views.contact_admin': {
-            'handlers': ['console', 'file'],
+            # 'handlers': ['console', 'file'],
+            'handlers': ['file'],
             'level': 'INFO',
         }
     }

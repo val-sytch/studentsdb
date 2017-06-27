@@ -63,3 +63,16 @@ $ sudo docker-compose ps
 (venv)$ python manage.py createsuperuser
 (venv)$ python manage.py runserver
 ```
+
+## Run tests
+
+```sh
+(venv)$ python manage.py test
+```
+
+### Check code coverage
+```sh
+(venv)$ pip install -r requirements/test.txt
+(venv)$ coverage run --omit='venv/*' manage.py test
+(venv)$ coverage report
+```
