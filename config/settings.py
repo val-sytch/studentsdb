@@ -10,8 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+# ----------------
+# DEVELOPMENT SETTINGS
+# ----------------
+
 import os
 from django.utils.translation import ugettext_lazy as _
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -228,6 +234,8 @@ ADMINS = (
     ('admin', 'ibis.test333@gmail.com'),
     ('ak_vs', 'ak_vs@bk.ru')
 )
+
+MANAGERS = ADMINS
 
 # REGISTRATION
 # ------------------------------------------------------------------------------
