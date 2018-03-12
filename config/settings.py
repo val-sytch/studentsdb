@@ -169,8 +169,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 # ------------------------------------------------------------------------------
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'ibis.test333@gmail.com'
-EMAIL_HOST_PASSWORD = '098765432'
+EMAIL_HOST_USER = '' # set email here
+EMAIL_HOST_PASSWORD = '' #set password here
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
@@ -229,10 +229,11 @@ LOGGING = {
 
 # MANAGER CONFIGURATION
 # ------------------------------------------------------------------------------
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#admins 
+
+# Set your admin email here
 ADMINS = (
-    ('admin', 'ibis.test333@gmail.com'),
-    ('ak_vs', 'ak_vs@bk.ru')
+    ('admin', ''),
 )
 
 MANAGERS = ADMINS
@@ -247,7 +248,8 @@ LOGIN_URL = 'users:auth_login'
 LOGOUT_URL = 'users:auth_logout'
 
 # login via facebook, credentials to test app
+# (set your own credentials here)
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_FACEBOOK_KEY = '1889082398031654'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'b415fe98fb28d35edc719b1e81769913'
+SOCIAL_AUTH_FACEBOOK_KEY = ''
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
